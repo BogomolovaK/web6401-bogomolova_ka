@@ -1,0 +1,309 @@
+/* =========================================================
+   Кофейня «Аромат» — стили поверх reset.css
+   Подключается ПОСЛЕ reset.css
+   ========================================================= */
+
+/* ---------- Базовые стили страницы ---------- */
+body {
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #f7f1e8;
+    color: #2e1f16;
+}
+
+a {
+    color: #8b5e3c;
+    text-decoration: none;
+    border-bottom: 1px dashed #8b5e3c;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #4a2c1a;
+    border-bottom-style: solid;
+}
+
+/* Заголовки */
+h1, h2, h3 {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    color: #4a2c1a;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 26px;
+    border-left: 5px solid #c8956d;
+    padding-left: 12px;
+    margin-top: 32px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+/* Жирный текст */
+b, strong {
+    font-weight: bold;
+}
+
+img {
+    height: auto;
+}
+
+mark {
+    background-color: #ffd9a0;
+    color: #4a2c1a;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+
+/* ---------- Селектор по id ---------- */
+#site-title {
+    font-size: 26px;
+    color: #fff8ee;
+    letter-spacing: 1px;
+}
+
+/* ---------- Шапка ---------- */
+.header {
+    background-color: #6f4e37;
+    padding: 18px 20px;
+    border-bottom: 4px solid #c8956d;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 52px;
+    height: 52px;
+    margin-right: 14px;
+}
+
+/* ---------- Навигация ---------- */
+.nav {
+    text-align: center;
+    margin-top: 14px;
+}
+
+.nav a {
+    display: inline-block;
+    padding: 6px 16px;
+    margin: 0 8px;
+    color: #fff8ee;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 15px;
+}
+
+.nav a:hover {
+    background-color: #c8956d;
+    color: #2e1f16;
+    border-bottom-color: transparent;
+}
+
+.nav a.active {
+    background-color: #fff8ee;
+    color: #6f4e37;
+    font-weight: bold;
+}
+
+/* ---------- Главный блок ---------- */
+.hero {
+    max-width: 820px;
+    margin: 40px auto 20px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.hero h2 {
+    border: none;
+    padding: 0;
+    font-size: 34px;
+    text-align: center;
+    color: #6f4e37;
+}
+
+/* ---------- Карточки ---------- */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.card {
+    flex: 1 1 240px;
+    max-width: 280px;
+    background-color: #ffffff;
+    border: 1px solid #e3d6c8;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(111, 78, 55, 0.15);
+}
+
+.card h3 {
+    color: #6f4e37;
+    margin: 10px 0 6px;
+}
+
+/* ---------- Основной контент ---------- */
+.content {
+    max-width: 860px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.wide-image {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    margin: 20px auto;
+    border-radius: 12px;
+    border: 2px solid #e3d6c8;
+}
+
+/* ---------- Списки ---------- */
+.principles,
+.team {
+    padding-left: 28px;
+    margin: 16px 0;
+}
+
+.principles {
+    list-style: decimal outside;
+}
+
+.team {
+    list-style: disc outside;
+}
+
+.principles li,
+.team li {
+    margin-bottom: 6px;
+}
+
+/* ---------- Боковая заметка ---------- */
+.note {
+    background-color: #fff8ee;
+    border-left: 5px solid #c8956d;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 24px 0;
+}
+
+.note h3 {
+    color: #6f4e37;
+}
+
+/* ---------- Таблицы ---------- */
+.price-table,
+.info-table {
+    width: 100%;
+    margin: 20px 0 30px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(111, 78, 55, 0.12);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.price-table caption {
+    caption-side: top;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    color: #6f4e37;
+    font-size: 18px;
+}
+
+.price-table th,
+.price-table td,
+.info-table th,
+.info-table td {
+    border: 1px solid #e3d6c8;
+    padding: 10px 14px;
+    vertical-align: middle;
+}
+
+.price-table thead th {
+    background-color: #6f4e37;
+    color: #fff8ee;
+    text-align: center;
+}
+
+/* Выравнивание в таблице: влево / по центру / вправо */
+.price-table tbody td:first-child {
+    text-align: left;
+}
+
+.price-table tbody td:nth-child(2) {
+    text-align: center;
+}
+
+.price-table tbody td:last-child {
+    text-align: right;
+    font-weight: bold;
+    color: #8b5e3c;
+}
+
+.price-table tbody tr:nth-child(even) {
+    background-color: #fdf6ee;
+}
+
+.price-table tbody tr:hover {
+    background-color: #f3e6d8;
+}
+
+.info-table th {
+    width: 200px;
+    text-align: left;
+    background-color: #f3e6d8;
+    color: #4a2c1a;
+}
+
+.info-table td {
+    text-align: right;
+}
+
+/* ---------- Подвал ---------- */
+.footer {
+    margin-top: 40px;
+    padding: 18px;
+    background-color: #6f4e37;
+    color: #fff8ee;
+    text-align: center;
+    font-size: 14px;
+    border-top: 4px solid #c8956d;
+}
+
+.footer a {
+    color: #f3d9c0;
+}
+
+/* ---------- Селекторы потомков, дочерние, сестринские ---------- */
+.hero p {
+    margin-bottom: 10px;
+}
+
+.cards > article {
+    margin-bottom: 10px;
+}
+
+h2 + p {
+    margin-top: 8px;
+}
