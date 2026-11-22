@@ -1,0 +1,484 @@
+/* =========================================================
+   Кофейня «Аромат» — стили поверх reset.css
+   Все цвета — только через переменные в :root
+   ========================================================= */
+
+:root {
+    --color-bg: #f7f1e8;
+    --color-text: #2e1f16;
+    --color-heading: #4a2c1a;
+    --color-primary: #6f4e37;
+    --color-primary-dark: #4a2c1a;
+    --color-accent: #c8956d;
+    --color-link: #8b5e3c;
+    --color-surface: #ffffff;
+    --color-surface-warm: #fff8ee;
+    --color-border: #e3d6c8;
+    --color-note-bg: #fff8ee;
+    --color-table-even: #fdf6ee;
+    --color-table-hover: #f3e6d8;
+    --color-mark-bg: #ffd9a0;
+    --color-footer-text: #fff8ee;
+    --color-footer-link: #f3d9c0;
+    --color-focus: #ffd9a0;
+    --color-shadow: rgba(111, 78, 55, 0.15);
+    --color-shadow-soft: rgba(111, 78, 55, 0.12);
+
+    --color-garland-bg: #3a2418;
+    --color-garland-wire: #2b1a10;
+    --color-bulb-red: #ff5252;
+    --color-bulb-yellow: #ffd54f;
+    --color-bulb-green: #69f0ae;
+    --color-bulb-blue: #40c4ff;
+    --color-bulb-pink: #ff80ab;
+    --color-bulb-orange: #ffab40;
+
+    --font-body: "Georgia", "Times New Roman", serif;
+    --font-heading: "Trebuchet MS", Arial, sans-serif;
+
+    --radius: 12px;
+    --transition: 0.2s ease;
+}
+
+/* ---------- Базовые стили ---------- */
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+a {
+    color: var(--color-link);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--color-link);
+    transition: color var(--transition);
+}
+
+a:hover {
+    color: var(--color-primary-dark);
+    border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-heading);
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+h1 { font-size: 28px; }
+
+h2 {
+    font-size: 26px;
+    border-left: 5px solid var(--color-accent);
+    padding-left: 12px;
+    margin-top: 32px;
+}
+
+h3 { font-size: 20px; }
+
+b, strong { font-weight: bold; }
+
+img { height: auto; }
+
+mark {
+    background-color: var(--color-mark-bg);
+    color: var(--color-heading);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+#site-title {
+    font-size: 26px;
+    color: var(--color-surface-warm);
+    letter-spacing: 1px;
+}
+
+/* ---------- Шапка ---------- */
+.header {
+    background-color: var(--color-primary);
+    padding: 18px 20px;
+    border-bottom: 4px solid var(--color-accent);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 52px;
+    height: 52px;
+    margin-right: 14px;
+    animation: logo-float 3.6s ease-in-out infinite;
+}
+
+@keyframes logo-float {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-6px) rotate(-2deg); }
+}
+
+/* ---------- Навигация ---------- */
+.nav {
+    text-align: center;
+    margin-top: 14px;
+}
+
+.nav a {
+    display: inline-block;
+    padding: 6px 16px;
+    margin: 0 8px;
+    color: var(--color-surface-warm);
+    border: 1px solid transparent;
+    border-radius: 20px;
+    font-family: var(--font-heading);
+    font-size: 15px;
+}
+
+.nav a:hover {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+    border-bottom-color: transparent;
+}
+
+.nav a.active {
+    background-color: var(--color-surface-warm);
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+/* ---------- Гирлянда ---------- */
+.garland {
+    background-color: var(--color-garland-bg);
+    padding: 18px 24px 26px;
+    overflow: hidden;
+}
+
+.garland__bulbs {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    padding: 4px 24px 0;   /* боковые отступы, чтобы крайние лампочки не прилипали к краю */
+    border-top: 2px solid var(--color-garland-wire);
+}
+
+.garland__bulb {
+    position: relative;
+    width: 14px;
+    height: 20px;
+    border-radius: 50% 50% 45% 45% / 65% 65% 35% 35%;
+    background-color: var(--bulb-color);
+    box-shadow: 0 0 10px 2px var(--bulb-color);
+    animation: bulb-twinkle 2s ease-in-out infinite;
+}
+
+
+.garland__bulb::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    width: 2px;
+    height: 6px;
+    margin-left: -1px;
+    background-color: var(--color-garland-wire);
+}
+
+/* Разные задержки, чтобы гирлянда «переливалась», а не мигала в такт */
+.garland__bulb:nth-child(2n) { animation-delay: 0.25s; }
+.garland__bulb:nth-child(3n) { animation-delay: 0.5s;  }
+.garland__bulb:nth-child(4n) { animation-delay: 0.75s; }
+.garland__bulb:nth-child(5n) { animation-delay: 1s;    }
+
+.garland__bulb--red    { --bulb-color: var(--color-bulb-red); }
+.garland__bulb--yellow { --bulb-color: var(--color-bulb-yellow); }
+.garland__bulb--green  { --bulb-color: var(--color-bulb-green); }
+.garland__bulb--blue   { --bulb-color: var(--color-bulb-blue); }
+.garland__bulb--pink   { --bulb-color: var(--color-bulb-pink); }
+.garland__bulb--orange { --bulb-color: var(--color-bulb-orange); }
+
+@keyframes bulb-twinkle {
+    0%, 100% {
+        opacity: 0.4;
+        transform: scale(0.9);
+        box-shadow: 0 0 4px 1px var(--bulb-color);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+        box-shadow: 0 0 18px 6px var(--bulb-color);
+    }
+}
+
+/* ---------- Главный блок / Flexbox ---------- */
+.hero {
+    max-width: 820px;
+    margin: 40px auto 20px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.hero h2 {
+    border: none;
+    padding: 0;
+    font-size: 34px;
+    text-align: center;
+    color: var(--color-primary);
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.card {
+    flex: 1 1 240px;
+    max-width: 280px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px var(--color-shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px var(--color-shadow);
+}
+
+.card h3 {
+    color: var(--color-primary);
+    margin: 10px 0 6px;
+}
+
+/* ---------- Основной контент ---------- */
+.content {
+    max-width: 860px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.wide-image {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    margin: 20px auto;
+    border-radius: var(--radius);
+    border: 2px solid var(--color-border);
+}
+
+/* ---------- Списки ---------- */
+.principles,
+.team {
+    padding-left: 28px;
+    margin: 16px 0;
+}
+
+.principles { list-style: decimal outside; }
+.team { list-style: disc outside; }
+
+.principles li,
+.team li {
+    margin-bottom: 6px;
+}
+
+/* ---------- Боковая заметка ---------- */
+.note {
+    background-color: var(--color-note-bg);
+    border-left: 5px solid var(--color-accent);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 24px 0;
+}
+
+.note h3 { color: var(--color-primary); }
+
+/* ---------- Таблицы ---------- */
+.price-table,
+.info-table {
+    width: 100%;
+    margin: 20px 0 30px;
+    background-color: var(--color-surface);
+    box-shadow: 0 4px 12px var(--color-shadow-soft);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.price-table caption {
+    caption-side: top;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    color: var(--color-primary);
+    font-size: 18px;
+}
+
+.price-table th,
+.price-table td,
+.info-table th,
+.info-table td {
+    border: 1px solid var(--color-border);
+    padding: 10px 14px;
+    vertical-align: middle;
+}
+
+.price-table thead th {
+    background-color: var(--color-primary);
+    color: var(--color-surface-warm);
+    text-align: center;
+}
+
+.price-table tbody td:first-child { text-align: left; }
+.price-table tbody td:nth-child(2) { text-align: center; }
+
+.price-table tbody td:last-child {
+    text-align: right;
+    font-weight: bold;
+    color: var(--color-link);
+}
+
+.price-table tbody tr:nth-child(even) {
+    background-color: var(--color-table-even);
+}
+
+.price-table tbody tr:hover {
+    background-color: var(--color-table-hover);
+}
+
+.info-table th {
+    width: 200px;
+    text-align: left;
+    background-color: var(--color-table-hover);
+    color: var(--color-heading);
+}
+
+.info-table td { text-align: right; }
+
+/* ---------- Grid-страница меню ---------- */
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: start;
+    margin-top: 20px;
+}
+
+.menu-section { min-width: 0; }
+
+.menu-section h2 {
+    margin-top: 0;
+}
+
+/* ---------- Форма ---------- */
+.contact-form {
+    display: grid;
+    gap: 18px;
+    max-width: 640px;
+    margin: 24px 0 32px;
+    padding: 24px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px var(--color-shadow-soft);
+}
+
+.contact-form__field {
+    display: grid;
+    gap: 6px;
+}
+
+.contact-form__label {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+.contact-form__input,
+.contact-form__select,
+.contact-form__textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font: inherit;
+}
+
+.contact-form__input:focus,
+.contact-form__select:focus,
+.contact-form__textarea:focus {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 1px;
+    border-color: var(--color-accent);
+}
+
+.contact-form__checkbox-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.contact-form__checkbox {
+    width: auto;
+    margin-top: 5px;
+    accent-color: var(--color-primary);
+}
+
+.contact-form__button {
+    justify-self: start;
+    padding: 12px 24px;
+    background-color: var(--color-primary);
+    color: var(--color-footer-text);
+    border: none;
+    border-radius: 999px;
+    font-family: var(--font-heading);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color var(--transition), transform var(--transition);
+}
+
+.contact-form__button:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+}
+
+/* ---------- Подвал ---------- */
+.footer {
+    margin-top: 40px;
+    padding: 18px;
+    background-color: var(--color-primary);
+    color: var(--color-footer-text);
+    text-align: center;
+    font-size: 14px;
+    border-top: 4px solid var(--color-accent);
+}
+
+.footer a { color: var(--color-footer-link); }
+
+/* ---------- Мелкие правила ---------- */
+.hero p { margin-bottom: 10px; }
+.cards > article { margin-bottom: 10px; }
+h2 + p { margin-top: 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+    .logo { animation: none; }
+    .garland__bulb {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+    .card,
+    .contact-form__button { transition: none; }
+}

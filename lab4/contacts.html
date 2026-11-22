@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кофейня «Аромат» — Контакты</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-inner">
+            <img src="images/logo.svg" alt="Логотип кофейни" class="logo">
+            <h1 id="site-title">Кофейня «Аромат»</h1>
+        </div>
+        <nav class="nav">
+            <a href="index.html">Главная</a>
+            <a href="menu.html">Меню</a>
+            <a href="about.html">О нас</a>
+            <a href="contacts.html" class="active">Контакты</a>
+        </nav>
+    </header>
+
+    <div class="garland" aria-hidden="true">
+        <div class="garland__bulbs">
+            <span class="garland__bulb garland__bulb--red"></span>
+            <span class="garland__bulb garland__bulb--yellow"></span>
+            <span class="garland__bulb garland__bulb--green"></span>
+            <span class="garland__bulb garland__bulb--blue"></span>
+            <span class="garland__bulb garland__bulb--pink"></span>
+            <span class="garland__bulb garland__bulb--orange"></span>
+            <span class="garland__bulb garland__bulb--red"></span>
+            <span class="garland__bulb garland__bulb--yellow"></span>
+            <span class="garland__bulb garland__bulb--green"></span>
+            <span class="garland__bulb garland__bulb--blue"></span>
+            <span class="garland__bulb garland__bulb--pink"></span>
+            <span class="garland__bulb garland__bulb--orange"></span>
+        </div>
+    </div>
+
+    <main>
+        <section class="content">
+            <h2>Как нас найти</h2>
+
+            
+            <table class="info-table">
+                <tbody>
+                    <tr>
+                        <th>Адрес</th>
+                        <td>г. Самара, ул. Кофейная, д. 12</td>
+                    </tr>
+                    <tr>
+                        <th>Телефон</th>
+                        <td>+7 (495) 123-45-67</td>
+                    </tr>
+                    <tr>
+                        <th>E-mail</th>
+                        <td>hello@aromat-coffee.ru</td>
+                    </tr>
+                    <tr>
+                        <th>Часы работы</th>
+                        <td>Ежедневно с 08:00 до 22:00</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Написать нам</h2>
+
+            <form class="contact-form" id="contact-form" action="#" method="post">
+                <div class="contact-form__field">
+                    <label for="name" class="contact-form__label">Имя</label>
+                    <input class="contact-form__input" id="name" name="name" type="text" required placeholder="Анна">
+                </div>
+
+                <div class="contact-form__field">
+                    <label for="email" class="contact-form__label">E-mail</label>
+                    <input class="contact-form__input" id="email" name="email" type="email" required placeholder="you@example.com">
+                </div>
+
+                <div class="contact-form__field">
+                    <label for="topic" class="contact-form__label">Тема</label>
+                    <select class="contact-form__select" id="topic" name="topic" required>
+                        <option value="">Выберите тему</option>
+                        <option value="booking">Бронирование столика</option>
+                        <option value="feedback">Отзыв</option>
+                        <option value="other">Другое</option>
+                    </select>
+                </div>
+
+                <div class="contact-form__field">
+                    <label for="message" class="contact-form__label">Сообщение</label>
+                    <textarea class="contact-form__textarea" id="message" name="message" rows="4" required></textarea>
+                </div>
+
+                <div class="contact-form__field contact-form__checkbox-row">
+                    <input class="contact-form__checkbox" id="consent" name="consent" type="checkbox" required>
+                    <label for="consent" class="contact-form__label">Согласен на обработку персональных данных</label>
+                </div>
+
+                <button class="contact-form__button" type="submit">Отправить</button>
+            </form>
+
+            <script src="js/form.js" defer></script>
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Кофейня «Аромат». <a href="index.html">На главную</a></p>
+    </footer>
+
+</body>
+</html>
